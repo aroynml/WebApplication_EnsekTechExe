@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<hr />  
+<div class="text-center" style="border:1px #888; width:80%; margin: auto">
+    <form action="https://localhost:44382/meter-reading-uploads"
+          enctype="multipart/form-data" onsubmit="readingUpload(this);return false;"
+          method="post">
+        <dl>
+            <dt>
+                <label for="FileUpload_FormFile">CSV File Upload</label>
+            </dt>
+            <dd>
+                <input id="FileUpload_FormFile" type="file"
+                       name="FileUpload.FormFile" />
+            </dd>
+        </dl>
+
+        <input class="btn" type="submit" value="Upload" />
+
+        <div style="margin-top:15px">
+            <output name="result"></output>
+        </div>
+    </form>
+</div>
+    @section Scripts {
+        <script>
+
+            function readingUpload(oFormElement) {
+                const uri = "https://localhost:44382/meter-reading-uploads"
+
+                var resultElement = oFormElement.elements.namedItem("result");
+                const formData = new FormData(oFormElement);
+
+                const response = fetch(uri, {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => console.log('Response:', response.json()))
+                    .then(() => {
+                        resultElement.value = 'Result: ' + response.status + ' ' + response.statusText;
+                    })
+                    .catch(error => console.error('Error upload.', error));
+            }
+        </script>
+    }

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi.Controllers.EnsekAccountsController.UploadPointfile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Upload CSV file into Meter Reading
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.EnsekAccountsController.SetReadingUploadFilePath(System.String,System.String)">
+            <summary>
+            Set Path for Uploading File
+            return string 
+            </summary>
+            <param name="folder"></param>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.EnsekAccountsController.EnsekAccountIdExists(System.String)">
+            <summary>
+            Check If Accountid is valid account
+            Return False if invalid or not found
+            </summary>
+            <param name="accountid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.EnsekAccountsController.EnsekMeterReadingExists(System.Int32,System.DateTime,System.Int32)">
+            <summary>
+            Check If the readingvalue and date have been added in record
+            Return False if invalid or not found
+            </summary>
+            <param name="accountid"></param>
+            <param name="thisreadtime"></param>
+            <param name="meterreadvalue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Helper.ValidateHelper.ValidateFile(System.String)">
+            <summary>
+            Validate File Format
+            return false if invalid
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Helper.ValidateHelper.ValidateReadingDate(System.String)">
+            <summary>
+            Check If MeterReadingDateTime is valid DateTime
+            Return Datetime MinValue if invalid
+            </summary>
+            <param name="MeterReadingDateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Helper.ValidateHelper.ValidateReadingValue(System.String)">
+            <summary>
+            Check If MeterReadValue is valid int (between 0 and 99999)
+            Return -1 if invalid
+            </summary>
+            <param name="MeterReadValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Helper.ValidateHelper.ValidateAccountId(System.String)">
+            <summary>
+            Check If Accountid is valid account
+            Return False if invalid or not found
+            </summary>
+            <param name="accountid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Models.EnsekAccounts">
+            <summary>
+            Database for EnsekAccount 
+            </summary>
+        </member>
+        <member name="T:WebApi.Models.EnsekMeterReading">
+            <summary>
+            Database for EnsekMeterReading 
+            </summary>
+        </member>
+    </members>
+</doc>
