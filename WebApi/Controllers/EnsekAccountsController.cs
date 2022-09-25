@@ -35,7 +35,6 @@ namespace WebApi.Controllers
             return await _context.EnsekAccounts.ToListAsync();
         }
 
-        
         /// <summary>
         /// Upload CSV file into Meter Reading
         /// </summary>
